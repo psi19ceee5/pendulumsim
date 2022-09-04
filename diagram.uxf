@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>168</y>
+      <w>480</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>/drawable/
+--
+
+--
+/+draw()/
+/+update()/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>432</y>
+      <w>480</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>/pendulum/
+--
+#_length: double[]
+#_mass: double[]
+#_theta: double[]
+#_omega: double[]
+#_alpha: double[]
+#_x: double[]
+#_y: double[]
+--
+/+eom()/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>232</x>
+      <y>824</y>
+      <w>480</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>/pendulum1M/
+--
+
+--
++__init__(length: double[1], mass: double[1], theta: double[1], omega: double[1])
++eom(): double
++draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum1MEuler
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>560</y>
+      <w>504</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>610.0;10.0;610.0;160.0;10.0;170.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>232</y>
+      <w>24</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>808</x>
+      <y>824</y>
+      <w>472</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>/pendulum2M/
+--
+
+--
++__init__(length: double[2], mass: double[2], theta: double[2], omega: double[2])
++eom(): double[2]
++draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1384</x>
+      <y>824</y>
+      <w>472</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>/pendulum3M/
+--
+
+--
++__init__(length: double[3], mass: double[3], theta: double[3], omega: double[3])
++eom(): double[3]
++draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum1MRungeKutta
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>816</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum2MEuler
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1096</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum2MRungeKutta
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1168</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>560</y>
+      <w>24</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1392</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum3MEuler
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1672</x>
+      <y>1024</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>pendulum3MRungeKutta
+--
+
+--
++update(dt: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1480</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1752</x>
+      <y>904</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1144</x>
+      <y>560</y>
+      <w>488</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;590.0;150.0;590.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2496</x>
+      <y>96</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Rose
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>2520</x>
+      <y>96</y>
+      <w>48</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Actor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>288</y>
+      <w>488</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>world
+--
+#_object_stack: drawable[]
+#_background_color: int
+#_width: int
+#_height: int
+#_lmargin: int
+#_rmargin: int
+#_tmargin: int
+#_bmargin: int
+#_effwidth: int
+#_effhight: int
+#_aspectratio: double
+#_scale: double
+--
++setBackgroundColor(color: int)
++setWidth(width: int)
++setHeight(height: int)
++setMargin(tmargin: int, rmargin: int, bmargin: int, lmargin: int)
++setRelMargin(tmargin: double, rmargin: double, bmargin: double, lmargin: double)
++setWorldWidth(width: double)
++setWorldHeight(height: double)
++draw()
++update()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>592</x>
+      <y>168</y>
+      <w>224</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0...*</panel_attributes>
+    <additional_attributes>10.0;180.0;140.0;180.0;140.0;10.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>232</y>
+      <w>488</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>590.0;10.0;590.0;50.0;10.0;50.0;10.0;70.0</additional_attributes>
+  </element>
+</diagram>
