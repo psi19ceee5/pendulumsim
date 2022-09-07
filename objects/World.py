@@ -106,7 +106,7 @@ class world(Drawable.drawable) :
         return self._height*self._scale
 
     def getMargin(self) :
-        return tmargin, rmargin, bmargin, lmargin
+        return self._tmargin, self._rmargin, self._bmargin, self._lmargin
 
     def getRelMargin(self) :
         return tmargin/self._height, rmargin/self._width, bmargin/self._height, lmargin/self._width
@@ -122,7 +122,4 @@ class world(Drawable.drawable) :
 
     def getEffAspectRatio(self) :
         return self._effaspectratio
-    
-
-
     

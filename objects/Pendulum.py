@@ -5,9 +5,6 @@ import pygame
 from objects import Physics
 from objects import Drawable
 
-screenw = 600
-screenh = 600
-
 class pendulum(Drawable.drawable) :
     def __init__(self, phys, world) :
         super().__init__(world)
@@ -35,14 +32,17 @@ class pendulum1M(pendulum) :
 
     def draw(self) :
         # pass to function
-        x = self._x[0] * (0.5*screenw/self._length[0]) + screenw/2
-        y = -self._y[0] * (0.5*screenh/self._length[0]) + screenh/10
-        # pygame test
+        screenw = self._world.getEffWidth()
+        screenh = self._world.getEffHeight()
+        tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
+        x = self._x[0] * (0.5*screenw/self._length[0]) + lmargin + screenw/2
+        y = -self._y[0] * (0.5*screenh/self._length[0]) + tmargin + screenh/10
+
         screen = self._world.getScreen()
-        color = self._world.getBackgroundColor()
-        screen.fill(color)
+        bgcolor = self._world.getBackgroundColor()
+        screen.fill(bgcolor)
         self._massrect = pygame.draw.circle(screen, (0,0,255), (x, y), 20, 5)
-        pygame.display.update()        
+        pygame.display.update()
 
 class pendulum1MEuler(pendulum1M) :
     def update(self, dt) :

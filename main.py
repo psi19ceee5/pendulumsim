@@ -14,6 +14,7 @@ if __name__ == "__main__" :
     # pend = pendulum1MEuler(1, 1, np.pi/4, 0)
 
     world = World.world()
+    world.setRelMargin(0.2, 0.3, 0.1, 0.4)
     world.initPyGame()
     
     phys = Physics.physics()
