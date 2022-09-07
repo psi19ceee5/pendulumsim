@@ -328,7 +328,7 @@ bg=red
 --
 #_object_stack: drawable[]
 #_guimanager: pygame_gui.UIManager
-#_background_color: int
+#_background_color: (int, int, int)
 #_width: int
 #_height: int
 #_lmargin: int
