@@ -341,7 +341,7 @@ bg=red
 +_aspectratio: double
 +_scale: double
 --
-+setBackgroundColor(color: int)
++setBackgroundColor(color: (int, int, int))
 +setWidth(width: int)
 +setHeight(height: int)
 +setMargin(tmargin: int, rmargin: int, bmargin: int, lmargin: int)
