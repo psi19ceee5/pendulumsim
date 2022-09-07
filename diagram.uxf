@@ -327,7 +327,6 @@ bg=red
     <panel_attributes>world
 --
 #_object_stack: drawable[]
-#_pygame: pygame
 #_guimanager: pygame_gui.UIManager
 #_background_color: int
 #_width: int
