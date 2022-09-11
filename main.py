@@ -11,14 +11,18 @@ from objects import Pendulum
 
 
 if __name__ == "__main__" :
-    # pend = pendulum1MEuler(1, 1, np.pi/4, 0)
 
     world = World.world()
-    world.setRelMargin(0.1, 0.1, 0.1, 0.1)
+    world.setRelMargin(0.2, 0.1, 0.1, 0.1)
     world.initPyGame()
     
-    phys = Physics.physics()
-    pend = Pendulum.pendulum1MEuler([0.2], [1], [np.pi/4.], [0], phys, world)
+    phys = Physics.physics(friction=0.1)
+    pend = Pendulum.pendulum2MEuler(length=[0.2, 0.2],               
+                                    mass=[1, 1],
+                                    theta=[np.pi/2., 3*np.pi/4.],
+                                    omega=[0, 0],
+                                    phys=phys,
+                                    world=world)
 
     world.appendObject(pend)
 
@@ -30,8 +34,9 @@ if __name__ == "__main__" :
     running = True
     while running:
         clock.tick(fps)
-        tcyc = int(1000./fps)
+
         # num iteration in small steps (delay main loop)
+        tcyc = int(1000./fps)
         t0 = pygame.time.get_ticks()
         t1 = pygame.time.get_ticks()
         dt = 0
