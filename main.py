@@ -18,7 +18,7 @@ if __name__ == "__main__" :
     world.initPyGame()
     
     phys = Physics.physics()
-    pend = Pendulum.pendulum1MEuler(0.2, 1, np.pi/4, 0, phys, world)
+    pend = Pendulum.pendulum1MEuler([0.2], [1], [np.pi/4.], [0], phys, world)
 
     world.appendObject(pend)
 
@@ -26,18 +26,19 @@ if __name__ == "__main__" :
 
     t0 = 0
     t1 = 0
+    fps = 45
     running = True
     while running:
-        tcyc = clock.tick(60)
-
+        clock.tick(fps)
+        tcyc = int(1000./fps)
         # num iteration in small steps (delay main loop)
         t0 = pygame.time.get_ticks()
         t1 = pygame.time.get_ticks()
         dt = 0
         while t1 - t0 < tcyc :
-            print(t0, t1, dt)
             t1 = pygame.time.get_ticks()
             world.update(dt/1000.)
+            pygame.time.delay(1)
             dt = pygame.time.get_ticks() - t1
         
         world.draw()
