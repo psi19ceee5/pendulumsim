@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>7</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>966</x>
-      <y>112</y>
-      <w>420</w>
-      <h>77</h>
+      <x>828</x>
+      <y>204</y>
+      <w>360</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>/drawable/
 --
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>966</x>
-      <y>343</y>
-      <w>420</w>
-      <h>189</h>
+      <x>828</x>
+      <y>372</y>
+      <w>360</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -43,16 +43,18 @@
 #_mass_radius: double[]
 --
 +__init__(length: double[], mass: double[], theta: double[], omega: double[])
++setNumMethod(num_method: method)
++update()
 /+eom()/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>469</x>
-      <y>700</y>
-      <w>420</w>
-      <h>63</h>
+      <x>402</x>
+      <y>708</y>
+      <w>360</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>/pendulum1M/
 --
@@ -63,60 +65,34 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
+    <id>Relation</id>
     <coordinates>
-      <x>483</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
+      <x>558</x>
+      <y>546</y>
+      <w>378</w>
+      <h>174</h>
     </coordinates>
-    <panel_attributes>pendulum1MEuler
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>610.0;10.0;610.0;100.0;10.0;110.0;10.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>651</x>
-      <y>525</y>
-      <w>441</w>
-      <h>189</h>
+      <x>1002</x>
+      <y>264</y>
+      <w>18</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>610.0;10.0;610.0;80.0;10.0;90.0;10.0;250.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1169</x>
-      <y>182</y>
-      <w>21</w>
-      <h>175</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>560</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>973</x>
-      <y>700</y>
-      <w>413</w>
-      <h>63</h>
+      <x>834</x>
+      <y>708</y>
+      <w>354</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>/pendulum2M/
 --
@@ -129,10 +105,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1477</x>
-      <y>700</y>
-      <w>413</w>
-      <h>63</h>
+      <x>1266</x>
+      <y>708</y>
+      <w>354</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>/pendulum3M/
 --
@@ -143,188 +119,34 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
+    <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
+      <x>1002</x>
+      <y>546</y>
+      <w>18</w>
+      <h>174</h>
     </coordinates>
-    <panel_attributes>pendulum1MRungeKutta
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>791</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
+      <x>1086</x>
+      <y>546</y>
+      <w>366</w>
+      <h>174</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>980</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>pendulum2MEuler
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1225</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>pendulum2MRungeKutta
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1288</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1057</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1169</x>
-      <y>525</y>
-      <w>21</w>
-      <h>189</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1484</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>pendulum3MEuler
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1729</x>
-      <y>875</y>
-      <w>154</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>pendulum3MRungeKutta
---
-
---
-+update(dt: double)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1561</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1799</x>
-      <y>756</y>
-      <w>21</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1267</x>
-      <y>525</y>
-      <w>427</w>
-      <h>189</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;590.0;70.0;590.0;250.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>2450</x>
-      <y>63</y>
-      <w>42</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>Rose
-bg=red
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>2471</x>
-      <y>63</y>
-      <w>42</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>Actor</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;10.0;10.0;90.0;590.0;90.0;590.0;270.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>245</y>
-      <w>427</w>
-      <h>560</h>
+      <y>318</y>
+      <w>366</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>world
 --
@@ -381,10 +203,10 @@ bg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>308</x>
-      <y>182</y>
-      <w>791</w>
-      <h>77</h>
+      <x>264</x>
+      <y>264</y>
+      <w>678</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>1110.0;10.0;1110.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
@@ -393,9 +215,9 @@ bg=red
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>140</y>
-      <w>70</w>
-      <h>21</h>
+      <y>228</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>pygame</panel_attributes>
     <additional_attributes/>
@@ -403,10 +225,10 @@ bg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>161</x>
-      <y>154</y>
-      <w>42</w>
-      <h>105</h>
+      <x>138</x>
+      <y>240</y>
+      <w>36</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=0...1
@@ -418,10 +240,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>105</x>
-      <y>140</y>
-      <w>126</w>
-      <h>21</h>
+      <x>90</x>
+      <y>228</y>
+      <w>108</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>pygame_gui.UIManager</panel_attributes>
     <additional_attributes/>
@@ -429,10 +251,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>259</x>
-      <y>112</y>
-      <w>721</w>
-      <h>147</h>
+      <x>222</x>
+      <y>204</y>
+      <w>618</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=0...*</panel_attributes>
@@ -441,10 +263,10 @@ m2=0...*</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1099</x>
-      <y>392</y>
-      <w>168</w>
-      <h>35</h>
+      <x>942</x>
+      <y>444</y>
+      <w>144</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>Useless in python. Definition
 in child-constructor is enough.
@@ -454,10 +276,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1547</x>
-      <y>385</y>
-      <w>105</w>
-      <h>56</h>
+      <x>1326</x>
+      <y>366</y>
+      <w>90</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>physics
 --
@@ -469,22 +291,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1967</x>
-      <y>133</y>
-      <w>133</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1379</x>
-      <y>399</y>
-      <w>182</w>
-      <h>35</h>
+      <x>1182</x>
+      <y>378</y>
+      <w>156</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -495,10 +305,10 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>14</x>
-      <y>154</y>
-      <w>119</w>
-      <h>105</h>
+      <x>12</x>
+      <y>240</y>
+      <w>102</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
@@ -509,14 +319,116 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>287</x>
-      <y>133</y>
-      <w>693</w>
-      <h>126</h>
+      <x>246</x>
+      <y>222</y>
+      <w>594</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
 </panel_attributes>
     <additional_attributes>970.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1338</x>
+      <y>444</y>
+      <w>396</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>/num_method/
+--
+--
+/+upate()/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>174</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>174</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1242</x>
+      <y>546</y>
+      <w>396</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Euler
+--
+--
+/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double, double)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1656</x>
+      <y>546</y>
+      <w>396</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>RungeKutta
+--
+--
+/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double, double)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1608</x>
+      <y>474</y>
+      <w>228</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;360.0;70.0;360.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1272</x>
+      <y>474</y>
+      <w>180</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>280.0;10.0;280.0;60.0;10.0;60.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1182</x>
+      <y>444</y>
+      <w>168</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1..m
+&lt; teaches to</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
 </diagram>
