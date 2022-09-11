@@ -13,8 +13,10 @@ class world(Drawable.drawable) :
         self._rmargin = 0
         self._bmargin = 0
         self._lmargin = 0
-        self._effwidth = self._setEffWidth()
-        self._effheight = self._setEffHeight()
+        self._effwidth = self._width
+        self._setEffWidth()
+        self._effheight = self._height
+        self._setEffHeight()
         self._aspectratio = self._setAspectRatio()
         self._effapectratio = self._setEffAspectRatio()
         self._scale = 0.001 # meter per pixel
@@ -50,33 +52,41 @@ class world(Drawable.drawable) :
 
     def setWidth(self, width) :
         self._width = width
+        self._setEffWidth()
 
     def setHeight(self, height) :
         self._height = height
+        self._setEffHeight()
 
     def setWorldWidth(self, width) :
         self._width = width/self._scale
+        self._setEffWidth()
 
     def setWorldHeight(self, height) :
         self._height = height/self._scale
+        self._setEffHeight()
 
     def setMargin(self, tmargin, rmargin, bmargin, lmargin) :
         self._tmargin = tmargin
         self._rmargin = rmargin
         self._bmargin = bmargin
         self._lmargin = lmargin
+        self._setEffWidth()
+        self._setEffHeight()
 
     def setRelMargin(self, tmargin, rmargin, bmargin, lmargin) :
         self._tmargin = tmargin*self._height
         self._rmargin = rmargin*self._width
         self._bmargin = bmargin*self._height
         self._lmargin = lmargin*self._width
+        self._setEffWidth()
+        self._setEffHeight()
 
     def _setEffWidth(self) :
-        return self._width - self._rmargin - self._lmargin
+        self._effwidth = self._width - self._rmargin - self._lmargin
 
     def _setEffHeight(self) :
-        return self._height - self._tmargin - self._bmargin 
+        self._effheight = self._height - self._tmargin - self._bmargin 
 
     def _setAspectRatio(self) :
         return self._width/self._height
