@@ -35,8 +35,9 @@ class pendulum1M(pendulum) :
         screenw = self._world.getEffWidth()
         screenh = self._world.getEffHeight()
         tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
-        x = self._x[0] * (0.5*screenw/self._length[0]) + lmargin + screenw/2
-        y = -self._y[0] * (0.5*screenh/self._length[0]) + tmargin + screenh/10
+        x = self._x[0] / self._world.getScale() + lmargin + screenw/2
+        y = -self._y[0] / self._world.getScale() + tmargin + screenh/10
+        print(screenw)
 
         screen = self._world.getScreen()
         bgcolor = self._world.getBackgroundColor()
