@@ -22,7 +22,7 @@ if __name__ == "__main__" :
     phys = Physics.physics(friction=0.01)
     pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
                                     mass=[1, 1],
-                                    theta=[np.pi/2., 1*np.pi/4.],
+                                    theta=[0, 0],
                                     omega=[0, 0],
                                     phys=phys,
                                     world=world)
