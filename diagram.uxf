@@ -25,7 +25,7 @@
       <x>828</x>
       <y>372</y>
       <w>360</w>
-      <h>180</h>
+      <h>186</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -41,6 +41,7 @@
 #_mountpoint_width : double
 #_mountpoint_height : double
 #_mass_radius: double[]
+#_method: num_method
 --
 +__init__(length: double[], mass: double[], theta: double[], omega: double[])
 +setNumMethod(num_method: method)
@@ -68,12 +69,12 @@
     <id>Relation</id>
     <coordinates>
       <x>558</x>
-      <y>546</y>
+      <y>552</y>
       <w>378</w>
-      <h>174</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>610.0;10.0;610.0;100.0;10.0;110.0;10.0;270.0</additional_attributes>
+    <additional_attributes>610.0;10.0;610.0;90.0;10.0;100.0;10.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -122,23 +123,23 @@
     <id>Relation</id>
     <coordinates>
       <x>1002</x>
-      <y>546</y>
+      <y>552</y>
       <w>18</w>
-      <h>174</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1086</x>
-      <y>546</y>
+      <y>552</y>
       <w>366</w>
-      <h>174</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0;590.0;90.0;590.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;590.0;80.0;590.0;260.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -372,7 +373,7 @@ m2=1
     <coordinates>
       <x>1242</x>
       <y>546</y>
-      <w>396</w>
+      <w>360</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>Euler
@@ -384,9 +385,9 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1656</x>
+      <x>1632</x>
       <y>546</y>
-      <w>396</w>
+      <w>360</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>RungeKutta
@@ -400,11 +401,11 @@ m2=1
     <coordinates>
       <x>1608</x>
       <y>474</y>
-      <w>228</w>
+      <w>204</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;360.0;70.0;360.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;320.0;70.0;320.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -425,10 +426,9 @@ m2=1
       <w>168</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=0..n
-m2=1..m
-&lt; teaches to</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1
+</panel_attributes>
     <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
 </diagram>
