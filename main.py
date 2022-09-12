@@ -80,6 +80,6 @@ if __name__ == "__main__" :
             pend.force(mousex, mousey, node)
 
         world.draw()
-        gui.update(time_delta)
         gui.draw()
+        gui.update(time_delta)
 
