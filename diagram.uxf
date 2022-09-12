@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>6</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>204</y>
-      <w>360</w>
-      <h>66</h>
+      <x>1320</x>
+      <y>56</y>
+      <w>480</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>/drawable/
 --
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>372</y>
-      <w>360</w>
-      <h>186</h>
+      <x>1320</x>
+      <y>280</y>
+      <w>480</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -52,10 +52,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>402</x>
-      <y>708</y>
-      <w>360</w>
-      <h>54</h>
+      <x>752</x>
+      <y>728</y>
+      <w>480</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>/pendulum1M/
 --
@@ -68,10 +68,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>552</y>
-      <w>378</w>
-      <h>168</h>
+      <x>960</x>
+      <y>520</y>
+      <w>504</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>610.0;10.0;610.0;90.0;10.0;100.0;10.0;260.0</additional_attributes>
@@ -79,10 +79,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1002</x>
-      <y>264</y>
-      <w>18</w>
-      <h>120</h>
+      <x>1552</x>
+      <y>136</y>
+      <w>24</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -90,10 +90,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>834</x>
-      <y>708</y>
-      <w>354</w>
-      <h>54</h>
+      <x>1328</x>
+      <y>728</y>
+      <w>472</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>/pendulum2M/
 --
@@ -106,10 +106,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1266</x>
-      <y>708</y>
-      <w>354</w>
-      <h>54</h>
+      <x>1904</x>
+      <y>728</y>
+      <w>472</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>/pendulum3M/
 --
@@ -122,10 +122,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1002</x>
-      <y>552</y>
-      <w>18</w>
-      <h>168</h>
+      <x>1552</x>
+      <y>520</y>
+      <w>24</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
@@ -133,10 +133,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1086</x>
-      <y>552</y>
-      <w>366</w>
-      <h>168</h>
+      <x>1664</x>
+      <y>520</y>
+      <w>488</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0;590.0;80.0;590.0;260.0</additional_attributes>
@@ -144,16 +144,15 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>318</y>
-      <w>366</w>
-      <h>480</h>
+      <x>216</x>
+      <y>208</y>
+      <w>488</w>
+      <h>712</h>
     </coordinates>
     <panel_attributes>world
 --
 #__init__()
 #_object_stack: drawable[]
-#_guimanager: pygame_gui.UIManager
 #_background_color: (int, int, int)
 #_screen: pygame.Surface
 #_width: int
@@ -164,15 +163,21 @@
 #_bmargin: int
 #_effwidth: int
 #_effhight: int
-+_aspectratio: double
-+_effaspectratio: double
-+_scale: double
+#_aspectratio: double
+#_effaspectratio: double
+#_scale: double
+#_screen: pygame.Surface
+#_guimanager: pygame_gui.UIManager
+#_stop_button: pygame_gui.elements.UIButton
+#_release_button: pygame_gui.elements.UIButton
 --
 +initPyGame()
++initGUI()
 +appendObject(drawobject: drawable)
 +clearObjectStack()
-+draw(double: dt)
-+update()
++draw()
++update(dt: double)
++updateGUI(time_delta: double)
 +processEvents()
 +setBackgroundColor(color: (int, int, int))
 +setScale(scale: double)
@@ -186,6 +191,7 @@
 #_setEffHeight()
 #_setAspectRatio()
 #_setEffAspectRatio()
++getGUIManager()
 +getBackgroundColor(): (int, int, int)
 +getScreen(): pygame.Surface
 +getScale(): double
@@ -198,16 +204,19 @@
 +getEffWidth(): int
 +getEffHeight(): int
 +getAspectRatio(): double
-+getEffAspectRatio(): double</panel_attributes>
++getEffAspectRatio(): double
++getStopButton(): pygame_gui.elements.UIButton
++getReleaseButton(): pygame_gui.elements.UIButton
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>264</y>
-      <w>678</w>
-      <h>66</h>
+      <x>568</x>
+      <y>136</y>
+      <w>904</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>1110.0;10.0;1110.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
@@ -215,10 +224,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>228</y>
-      <w>60</w>
-      <h>18</h>
+      <x>216</x>
+      <y>88</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>pygame</panel_attributes>
     <additional_attributes/>
@@ -226,10 +235,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>138</x>
-      <y>240</y>
-      <w>36</w>
-      <h>90</h>
+      <x>400</x>
+      <y>104</y>
+      <w>48</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=0...1
@@ -241,10 +250,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>228</y>
-      <w>108</w>
-      <h>18</h>
+      <x>336</x>
+      <y>88</y>
+      <w>144</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>pygame_gui.UIManager</panel_attributes>
     <additional_attributes/>
@@ -252,10 +261,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>222</x>
-      <y>204</y>
-      <w>618</w>
-      <h>126</h>
+      <x>512</x>
+      <y>56</y>
+      <w>824</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=0...*</panel_attributes>
@@ -264,10 +273,10 @@ m2=0...*</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>942</x>
-      <y>444</y>
-      <w>144</w>
-      <h>30</h>
+      <x>1472</x>
+      <y>376</y>
+      <w>192</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>Useless in python. Definition
 in child-constructor is enough.
@@ -277,10 +286,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1326</x>
-      <y>366</y>
-      <w>90</w>
-      <h>48</h>
+      <x>1984</x>
+      <y>272</y>
+      <w>120</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>physics
 --
@@ -292,10 +301,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1182</x>
-      <y>378</y>
-      <w>156</w>
-      <h>30</h>
+      <x>1792</x>
+      <y>288</y>
+      <w>208</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -306,10 +315,10 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>12</x>
-      <y>240</y>
-      <w>102</w>
-      <h>90</h>
+      <x>232</x>
+      <y>104</y>
+      <w>136</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
@@ -320,10 +329,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>246</x>
-      <y>222</y>
-      <w>594</w>
-      <h>108</h>
+      <x>544</x>
+      <y>80</y>
+      <w>792</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
@@ -333,10 +342,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1338</x>
-      <y>444</y>
-      <w>396</w>
-      <h>36</h>
+      <x>2000</x>
+      <y>376</y>
+      <w>528</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>/num_method/
 --
@@ -349,10 +358,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>174</y>
-      <w>60</w>
-      <h>18</h>
+      <x>944</x>
+      <y>16</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>SimpleClass</panel_attributes>
     <additional_attributes/>
@@ -360,10 +369,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>174</y>
-      <w>60</w>
-      <h>30</h>
+      <x>944</x>
+      <y>16</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>SimpleClass</panel_attributes>
     <additional_attributes/>
@@ -371,10 +380,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1242</x>
-      <y>546</y>
-      <w>360</w>
-      <h>36</h>
+      <x>1872</x>
+      <y>512</y>
+      <w>480</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Euler
 --
@@ -385,10 +394,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1632</x>
-      <y>546</y>
-      <w>360</w>
-      <h>36</h>
+      <x>2392</x>
+      <y>512</y>
+      <w>480</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>RungeKutta
 --
@@ -399,10 +408,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1608</x>
-      <y>474</y>
-      <w>204</w>
-      <h>84</h>
+      <x>2360</x>
+      <y>416</y>
+      <w>272</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0;320.0;70.0;320.0;120.0</additional_attributes>
@@ -410,10 +419,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1272</x>
-      <y>474</y>
-      <w>180</w>
-      <h>84</h>
+      <x>1912</x>
+      <y>416</y>
+      <w>240</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>280.0;10.0;280.0;60.0;10.0;60.0;10.0;120.0</additional_attributes>
@@ -421,10 +430,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1182</x>
-      <y>444</y>
-      <w>168</w>
-      <h>30</h>
+      <x>1792</x>
+      <y>376</y>
+      <w>224</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
