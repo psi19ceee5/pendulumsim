@@ -58,8 +58,6 @@ if __name__ == "__main__" :
             if moving == False and event.type == pygame.MOUSEBUTTONDOWN :
                 mousex, mousey = event.pos
                 xpos, ypos = pend.getPos()
-                print("pendulum pos:", xpos, ypos)
-                print("mouse pos:", mousex, mousey)
                 radius = pend.getRadius()
                 for i in range(len(xpos)) :
                     dist = (xpos[i] - mousex)**2 + (ypos[i] - mousey)**2
@@ -79,7 +77,6 @@ if __name__ == "__main__" :
 
         if forcing :
             mousex, mousey = pygame.mouse.get_pos()
-            print(mousex, mousey)
             pend.force(mousex, mousey, node)
 
         world.draw()
