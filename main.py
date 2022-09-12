@@ -17,7 +17,7 @@ if __name__ == "__main__" :
     world.initPyGame()
     
     phys = Physics.physics(friction=0.1)
-    pend = Pendulum.pendulum2MEuler(length=[0.2, 0.2],               
+    pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
                                     mass=[1, 1],
                                     theta=[np.pi/2., 3*np.pi/4.],
                                     omega=[0, 0],

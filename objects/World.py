@@ -19,7 +19,7 @@ class world(Drawable.drawable) :
         self._setEffHeight()
         self._aspectratio = self._setAspectRatio()
         self._effapectratio = self._setEffAspectRatio()
-        self._scale = 0.001 # meter per pixel
+        self._scale = 0.002 # meter per pixel
         self._screen = None
 
     def initPyGame(self) :

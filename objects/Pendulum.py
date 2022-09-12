@@ -5,6 +5,7 @@ import pygame
 from objects import Physics
 from objects import Drawable
 
+
 class pendulum(Drawable.drawable) :
     def __init__(self, length, mass, theta, omega, phys, world) :
         super().__init__(world)
@@ -30,11 +31,42 @@ class pendulum(Drawable.drawable) :
         self._mass_radius = []
         for m in self._mass :
             self._mass_radius.append(20*m**(1./3.))
+        self._method = euler()
         self.eom()
-    
+
+    def setNumMethod(method) :
+        self._method = method
+
+    def update(self, dt) :
+        for i in range(len(self._theta)) :
+            self._theta[i], self._omega[i] = self._method.update(self._theta[i], self._omega[i], self._alpha[i], dt)
+            self._x[i] = self._length[i] * np.sin(self._theta[i])
+            self._y[i] = -self._length[i] * np.cos(self._theta[i])
+            if i > 0 :
+                self._x[i] = self._x[i] + self._x[i-1]
+                self._y[i] = self._y[i] + self._y[i-1]
+            self.eom()
+        
     @abstractmethod
     def eom(self) :
         pass
+
+
+class num_method(ABC) :
+    @abstractmethod
+    def update() :
+        pass
+
+    
+class euler(num_method) :
+    def __init__(self) :
+        pass
+    
+    def update(self, theta, omega, alpha, dt) :
+        theta_new = theta + omega*dt + 0.5*alpha*dt*dt
+        omega_new = omega + alpha*dt
+        return theta_new, omega_new
+
 
 class pendulum1M(pendulum) :
     def eom(self) :
@@ -80,14 +112,7 @@ class pendulum1M(pendulum) :
         
         pygame.display.update()
 
-class pendulum1MEuler(pendulum1M) :
-    def update(self, dt) :
-        self._theta[0] = self._theta[0] + self._omega[0]*dt + 0.5*self._alpha[0]*dt*dt
-        self._omega[0] = self._omega[0] + self._alpha[0]*dt
-        self._x[0] = self._length[0] * np.sin(self._theta[0])
-        self._y[0] = -self._length[0] * np.cos(self._theta[0])
-        self.eom()
-
+        
 class pendulum2M(pendulum) :
     def eom(self) :
         # this is only valid for equal length and equal mass pendula
@@ -139,16 +164,3 @@ class pendulum2M(pendulum) :
                                self._mountpoint_height)))
         
         pygame.display.update()
-
-
-class pendulum2MEuler(pendulum2M) :
-    def update(self, dt) :
-        for i in range(len(self._theta)) :
-            self._theta[i] = self._theta[i] + self._omega[i]*dt + 0.5*self._alpha[i]*dt*dt
-            self._omega[i] = self._omega[i] + self._alpha[i]*dt
-            self._x[i] = self._length[i] * np.sin(self._theta[i])
-            self._y[i] = -self._length[i] * np.cos(self._theta[i])
-            if i > 0 :
-                self._x[i] = self._x[i] + self._x[i-1]
-                self._y[i] = self._y[i] + self._y[i-1]
-            self.eom()

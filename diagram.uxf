@@ -378,7 +378,7 @@ m2=1
     <panel_attributes>Euler
 --
 --
-/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double, double)/</panel_attributes>
+/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double)/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -392,7 +392,7 @@ m2=1
     <panel_attributes>RungeKutta
 --
 --
-/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double, double)/</panel_attributes>
+/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double)/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
