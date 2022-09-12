@@ -9,6 +9,7 @@ from objects import World
 from objects import Physics
 from objects import Drawable
 from objects import Pendulum
+from objects import GUI
 
 
 if __name__ == "__main__" :
@@ -16,7 +17,7 @@ if __name__ == "__main__" :
     world = World.world()
     world.setRelMargin(0.1, 0.1, 0.1, 0.1)
     world.initPyGame()
-    world.initGUI()
+    gui = GUI.pensimgui(world)
     
     phys = Physics.physics(friction=0.01)
     pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
@@ -56,13 +57,14 @@ if __name__ == "__main__" :
                 running = False
 
             if event.type == pygame_gui.UI_BUTTON_PRESSED :
-                if event.ui_element == world.getStopButton() :
+                if event.ui_element == gui.getStopButton() :
                     moving = False
-                if event.ui_element == world.getReleaseButton() :
+                if event.ui_element == gui.getReleaseButton() :
                     moving = True
 
-            world.getGUIManager().process_events(event)
+            gui.processEvents(event)
 
-        world.updateGUI(time_delta)
+        gui.update(time_delta)
         world.draw()
+        gui.draw()
 

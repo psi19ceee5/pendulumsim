@@ -1,5 +1,4 @@
 import pygame
-import pygame_gui
 from objects import Drawable
 
 class world(Drawable.drawable) :
@@ -20,34 +19,11 @@ class world(Drawable.drawable) :
         self._effapectratio = self._setEffAspectRatio()
         self._scale = 0.002 # meter per pixel
         self._screen = None
-        self._guimanager = None
-        self._stop_button = None
-        self._release_button = None
 
     def initPyGame(self) :
         pygame.init()
         self._screen = pygame.display.set_mode((self._width, self._height))
         pygame.display.set_caption("Pendulum Simulation")
-
-    def initGUI(self) :
-        self._guimanager = pygame_gui.UIManager((self._width, self._height))
-        sbutton_w = int(0.15*self._effwidth)
-        sbutton_h = int(0.1*self._effheight)
-        sbutton_x = self._lmargin + self._effwidth - sbutton_w
-        sbutton_y = self._height - self._bmargin - 2*int(1.2*sbutton_h)
-        sbutton_rect = pygame.Rect((sbutton_x, sbutton_y), (sbutton_w, sbutton_h))
-        self._stop_button = pygame_gui.elements.UIButton(relative_rect=sbutton_rect,
-                                                         text='Stop',
-                                                         manager=self._guimanager)
-        rbutton_w = sbutton_w
-        rbutton_h = sbutton_h
-        rbutton_x = sbutton_x
-        rbutton_y = self._height - self._bmargin - 1*int(1.2*sbutton_h)
-        rbutton_rect = pygame.Rect((rbutton_x, rbutton_y), (rbutton_w, rbutton_h))
-        self._release_button = pygame_gui.elements.UIButton(relative_rect=rbutton_rect,
-                                                            text='Release',
-                                                            manager=self._guimanager)
-
         
     def appendObject(self, drawobject) :
         assert issubclass(type(drawobject), Drawable.drawable)
@@ -61,16 +37,10 @@ class world(Drawable.drawable) :
     def draw(self) :
         for obj in self._object_stack :
             obj.draw()
-        self._guimanager.draw_ui(self._screen)
-        pygame.display.update()
-
 
     def update(self, dt) :
         for obj in self._object_stack :
             obj.update(dt)
-
-    def updateGUI(self, time_delta) :
-        self._guimanager.update(time_delta)
 
     def setBackgroundColor(self, color) :
         self._background_color = color
@@ -81,22 +51,18 @@ class world(Drawable.drawable) :
     def setWidth(self, width) :
         self._width = width
         self._setEffWidth()
-        pygame_gui.UIManager((self._width, self._height))
 
     def setHeight(self, height) :
         self._height = height
         self._setEffHeight()
-        pygame_gui.UIManager((self._width, self._height))
 
     def setWorldWidth(self, width) :
         self._width = width/self._scale
         self._setEffWidth()
-        pygame_gui.UIManager((self._width, self._height))
 
     def setWorldHeight(self, height) :
         self._height = height/self._scale
         self._setEffHeight()
-        pygame_gui.UIManager((self._width, self._height))
 
     def setMargin(self, tmargin, rmargin, bmargin, lmargin) :
         self._tmargin = tmargin
@@ -125,9 +91,6 @@ class world(Drawable.drawable) :
 
     def _setEffAspectRatio(self) :
         return self._effwidth/self._effheight
-
-    def getGUIManager(self) :
-        return self._guimanager
 
     def getBackgroundColor(self) :
         return self._background_color

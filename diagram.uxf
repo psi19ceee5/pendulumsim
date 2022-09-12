@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
-      <y>56</y>
-      <w>480</w>
-      <h>88</h>
+      <x>2170</x>
+      <y>50</y>
+      <w>600</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>/drawable/
 --
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
-      <y>280</y>
-      <w>480</w>
-      <h>248</h>
+      <x>2170</x>
+      <y>330</y>
+      <w>600</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -52,10 +52,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>752</x>
-      <y>728</y>
-      <w>480</w>
-      <h>72</h>
+      <x>1460</x>
+      <y>890</y>
+      <w>600</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>/pendulum1M/
 --
@@ -68,10 +68,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>520</y>
-      <w>504</w>
-      <h>224</h>
+      <x>1720</x>
+      <y>630</y>
+      <w>630</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>610.0;10.0;610.0;90.0;10.0;100.0;10.0;260.0</additional_attributes>
@@ -79,10 +79,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1552</x>
-      <y>136</y>
-      <w>24</w>
-      <h>160</h>
+      <x>2460</x>
+      <y>150</y>
+      <w>30</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
@@ -90,10 +90,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1328</x>
-      <y>728</y>
-      <w>472</w>
-      <h>72</h>
+      <x>2180</x>
+      <y>890</y>
+      <w>590</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>/pendulum2M/
 --
@@ -106,10 +106,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1904</x>
-      <y>728</y>
-      <w>472</w>
-      <h>72</h>
+      <x>2900</x>
+      <y>890</y>
+      <w>590</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>/pendulum3M/
 --
@@ -122,10 +122,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1552</x>
-      <y>520</y>
-      <w>24</w>
-      <h>224</h>
+      <x>2460</x>
+      <y>630</y>
+      <w>30</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
@@ -133,10 +133,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1664</x>
-      <y>520</y>
-      <w>488</w>
-      <h>224</h>
+      <x>2600</x>
+      <y>630</y>
+      <w>610</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0;590.0;80.0;590.0;260.0</additional_attributes>
@@ -144,10 +144,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
-      <y>208</y>
-      <w>488</w>
-      <h>712</h>
+      <x>790</x>
+      <y>240</y>
+      <w>610</w>
+      <h>800</h>
     </coordinates>
     <panel_attributes>world
 --
@@ -167,9 +167,6 @@
 #_effaspectratio: double
 #_scale: double
 #_screen: pygame.Surface
-#_guimanager: pygame_gui.UIManager
-#_stop_button: pygame_gui.elements.UIButton
-#_release_button: pygame_gui.elements.UIButton
 --
 +initPyGame()
 +initGUI()
@@ -177,8 +174,6 @@
 +clearObjectStack()
 +draw()
 +update(dt: double)
-+updateGUI(time_delta: double)
-+processEvents()
 +setBackgroundColor(color: (int, int, int))
 +setScale(scale: double)
 +setWidth(width: int)
@@ -191,7 +186,6 @@
 #_setEffHeight()
 #_setAspectRatio()
 #_setEffAspectRatio()
-+getGUIManager()
 +getBackgroundColor(): (int, int, int)
 +getScreen(): pygame.Surface
 +getScale(): double
@@ -205,18 +199,16 @@
 +getEffHeight(): int
 +getAspectRatio(): double
 +getEffAspectRatio(): double
-+getStopButton(): pygame_gui.elements.UIButton
-+getReleaseButton(): pygame_gui.elements.UIButton
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>136</y>
-      <w>904</w>
-      <h>88</h>
+      <x>1230</x>
+      <y>150</y>
+      <w>1130</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>1110.0;10.0;1110.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
@@ -224,10 +216,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
-      <y>88</y>
-      <w>80</w>
-      <h>24</h>
+      <x>790</x>
+      <y>90</y>
+      <w>100</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>pygame</panel_attributes>
     <additional_attributes/>
@@ -235,25 +227,25 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>104</y>
-      <w>48</w>
-      <h>120</h>
+      <x>250</x>
+      <y>110</y>
+      <w>60</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=0...1
 m2=1
 
 </panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>88</y>
-      <w>144</w>
-      <h>24</h>
+      <x>170</x>
+      <y>90</y>
+      <w>180</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>pygame_gui.UIManager</panel_attributes>
     <additional_attributes/>
@@ -261,10 +253,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>512</x>
-      <y>56</y>
-      <w>824</w>
-      <h>168</h>
+      <x>1160</x>
+      <y>50</y>
+      <w>1030</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=0...*</panel_attributes>
@@ -273,10 +265,10 @@ m2=0...*</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1472</x>
-      <y>376</y>
-      <w>192</w>
-      <h>40</h>
+      <x>2360</x>
+      <y>450</y>
+      <w>240</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>Useless in python. Definition
 in child-constructor is enough.
@@ -286,10 +278,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1984</x>
-      <y>272</y>
-      <w>120</w>
-      <h>64</h>
+      <x>3000</x>
+      <y>320</y>
+      <w>150</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>physics
 --
@@ -301,10 +293,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1792</x>
-      <y>288</y>
-      <w>208</w>
-      <h>40</h>
+      <x>2760</x>
+      <y>340</y>
+      <w>260</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -315,10 +307,10 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>104</y>
-      <w>136</w>
-      <h>120</h>
+      <x>810</x>
+      <y>110</y>
+      <w>170</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
@@ -329,10 +321,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
+      <x>1200</x>
       <y>80</y>
-      <w>792</w>
-      <h>144</h>
+      <w>990</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
@@ -342,10 +334,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2000</x>
-      <y>376</y>
-      <w>528</w>
-      <h>48</h>
+      <x>3020</x>
+      <y>450</y>
+      <w>660</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>/num_method/
 --
@@ -358,32 +350,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>944</x>
-      <y>16</y>
-      <w>80</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>944</x>
-      <y>16</y>
-      <w>80</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>SimpleClass</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1872</x>
-      <y>512</y>
-      <w>480</w>
-      <h>48</h>
+      <x>2860</x>
+      <y>620</y>
+      <w>600</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Euler
 --
@@ -394,10 +364,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2392</x>
-      <y>512</y>
-      <w>480</w>
-      <h>48</h>
+      <x>3510</x>
+      <y>620</y>
+      <w>600</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>RungeKutta
 --
@@ -408,10 +378,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2360</x>
-      <y>416</y>
-      <w>272</w>
-      <h>112</h>
+      <x>3470</x>
+      <y>500</y>
+      <w>340</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;70.0;320.0;70.0;320.0;120.0</additional_attributes>
@@ -419,10 +389,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1912</x>
-      <y>416</y>
-      <w>240</w>
-      <h>112</h>
+      <x>2910</x>
+      <y>500</y>
+      <w>300</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>280.0;10.0;280.0;60.0;10.0;60.0;10.0;120.0</additional_attributes>
@@ -430,14 +400,90 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1792</x>
-      <y>376</y>
-      <w>224</w>
-      <h>40</h>
+      <x>2760</x>
+      <y>450</y>
+      <w>280</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
 </panel_attributes>
     <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>480</y>
+      <w>400</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>pensimgui
+--
+#_stop_button: pygame_gui.elements.UIButton
+#_release_button: pygame_gui.elements.UIButton
+--
++__init__(world: world)
++getStopButton(): pygame_gui.elements.UIButton
++getReleaseButton(): pygame_gui.elements.UIButton</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>290</y>
+      <w>270</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; teaches to </panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>0</y>
+      <w>1890</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>1870.0;50.0;1870.0;10.0;10.0;10.0;10.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>250</y>
+      <w>320</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/gui/
+--
+#_guimanager: pygame_gui.UIManager
+#_screen: pygame.Surface
+#_width: int
+#_height: int
+--
+/+__init__(world: world)/
++processEvents(event: pygame.event)
++update()
++draw()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>420</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
