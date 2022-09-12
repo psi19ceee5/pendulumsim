@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2170</x>
+      <x>2000</x>
       <y>50</y>
       <w>600</w>
       <h>110</h>
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2170</x>
-      <y>330</y>
+      <x>2000</x>
+      <y>280</y>
       <w>600</w>
-      <h>310</h>
+      <h>370</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -42,17 +42,21 @@
 #_mountpoint_height : double
 #_mass_radius: double[]
 #_method: num_method
+#_objectorigin: (int, int)
 --
 +__init__(length: double[], mass: double[], theta: double[], omega: double[])
 +setNumMethod(num_method: method)
-+update()
++update(dt: double)
++force(fx: double, fy: double, node: int)
++getPos(): (int[], int[])
++getRadius(): double[]
 /+eom()/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1460</x>
+      <x>1290</x>
       <y>890</y>
       <w>600</w>
       <h>90</h>
@@ -68,29 +72,29 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1720</x>
-      <y>630</y>
+      <x>1550</x>
+      <y>640</y>
       <w>630</w>
-      <h>280</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>610.0;10.0;610.0;90.0;10.0;100.0;10.0;260.0</additional_attributes>
+    <additional_attributes>610.0;10.0;610.0;80.0;10.0;90.0;10.0;250.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2460</x>
+      <x>2290</x>
       <y>150</y>
       <w>30</w>
-      <h>200</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2180</x>
+      <x>2010</x>
       <y>890</y>
       <w>590</w>
       <h>90</h>
@@ -106,7 +110,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2900</x>
+      <x>2730</x>
       <y>890</y>
       <w>590</w>
       <h>90</h>
@@ -122,31 +126,31 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2460</x>
-      <y>630</y>
+      <x>2290</x>
+      <y>640</y>
       <w>30</w>
-      <h>280</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2600</x>
-      <y>630</y>
+      <x>2430</x>
+      <y>640</y>
       <w>610</w>
-      <h>280</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0;590.0;80.0;590.0;260.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;590.0;70.0;590.0;250.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>790</x>
+      <x>570</x>
       <y>240</y>
-      <w>610</w>
+      <w>620</w>
       <h>800</h>
     </coordinates>
     <panel_attributes>world
@@ -172,6 +176,7 @@
 +initGUI()
 +appendObject(drawobject: drawable)
 +clearObjectStack()
++convertWorldCoordinates(objcoord: (double, double), objorigin: (int, int)): (int, int)
 +draw()
 +update(dt: double)
 +setBackgroundColor(color: (int, int, int))
@@ -199,13 +204,14 @@
 +getEffHeight(): int
 +getAspectRatio(): double
 +getEffAspectRatio(): double
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
+      <x>1060</x>
       <y>150</y>
       <w>1130</w>
       <h>110</h>
@@ -216,7 +222,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>790</x>
+      <x>620</x>
       <y>90</y>
       <w>100</w>
       <h>30</h>
@@ -227,7 +233,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
+      <x>80</x>
       <y>110</y>
       <w>60</w>
       <h>160</h>
@@ -242,7 +248,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
+      <x>0</x>
       <y>90</y>
       <w>180</w>
       <h>30</h>
@@ -253,7 +259,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
+      <x>990</x>
       <y>50</y>
       <w>1030</w>
       <h>210</h>
@@ -263,22 +269,9 @@ m2=0...*</panel_attributes>
     <additional_attributes>10.0;190.0;10.0;10.0;1010.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>2360</x>
-      <y>450</y>
-      <w>240</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>Useless in python. Definition
-in child-constructor is enough.
-bg=blue</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3000</x>
+      <x>2830</x>
       <y>320</y>
       <w>150</w>
       <h>80</h>
@@ -293,7 +286,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2760</x>
+      <x>2590</x>
       <y>340</y>
       <w>260</w>
       <h>50</h>
@@ -307,7 +300,7 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
+      <x>640</x>
       <y>110</y>
       <w>170</w>
       <h>150</h>
@@ -321,7 +314,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1200</x>
+      <x>1030</x>
       <y>80</y>
       <w>990</w>
       <h>180</h>
@@ -334,7 +327,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3020</x>
+      <x>2850</x>
       <y>450</y>
       <w>660</w>
       <h>60</h>
@@ -350,7 +343,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2860</x>
+      <x>2690</x>
       <y>620</y>
       <w>600</w>
       <h>60</h>
@@ -364,7 +357,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3510</x>
+      <x>3340</x>
       <y>620</y>
       <w>600</w>
       <h>60</h>
@@ -378,7 +371,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3470</x>
+      <x>3300</x>
       <y>500</y>
       <w>340</w>
       <h>140</h>
@@ -389,7 +382,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2910</x>
+      <x>2740</x>
       <y>500</y>
       <w>300</w>
       <h>140</h>
@@ -400,7 +393,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2760</x>
+      <x>2590</x>
       <y>450</y>
       <w>280</w>
       <h>50</h>
@@ -413,7 +406,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>220</x>
+      <x>50</x>
       <y>480</y>
       <w>400</w>
       <h>120</h>
@@ -431,21 +424,21 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
+      <x>370</x>
       <y>290</y>
-      <w>270</w>
+      <w>220</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 &lt; teaches to </panel_attributes>
-    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>190</x>
       <y>0</y>
       <w>1890</w>
       <h>270</h>
@@ -456,7 +449,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
+      <x>60</x>
       <y>250</y>
       <w>320</w>
       <h>180</h>
@@ -478,7 +471,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>190</x>
       <y>420</y>
       <w>30</w>
       <h>80</h>

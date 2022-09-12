@@ -22,7 +22,7 @@ if __name__ == "__main__" :
     phys = Physics.physics(friction=0.01)
     pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
                                     mass=[1, 1],
-                                    theta=[np.pi/2., 3*np.pi/4.],
+                                    theta=[np.pi/2., 1*np.pi/4.],
                                     omega=[0, 0],
                                     phys=phys,
                                     world=world)
@@ -31,11 +31,11 @@ if __name__ == "__main__" :
 
     clock = pygame.time.Clock()
 
-    t0 = 0
-    t1 = 0
+    t0, t1 = 0, 0
     fps = 45
     running = True
-    moving = True
+    moving = False
+    forcing = False
     while running:
         time_delta = clock.tick(fps)
 
@@ -55,7 +55,20 @@ if __name__ == "__main__" :
         for event in ev :
             if event.type == pygame.QUIT :
                 running = False
-
+            if moving == False and event.type == pygame.MOUSEBUTTONDOWN :
+                mousex, mousey = event.pos
+                xpos, ypos = pend.getPos()
+                print("pendulum pos:", xpos, ypos)
+                print("mouse pos:", mousex, mousey)
+                radius = pend.getRadius()
+                for i in range(len(xpos)) :
+                    dist = (xpos[i] - mousex)**2 + (ypos[i] - mousey)**2
+                    dist = np.sqrt(dist)
+                    if dist < radius[i] :
+                        forcing = True
+                        node = i
+            if event.type == pygame.MOUSEBUTTONUP :
+                forcing = False
             if event.type == pygame_gui.UI_BUTTON_PRESSED :
                 if event.ui_element == gui.getStopButton() :
                     moving = False
@@ -64,7 +77,12 @@ if __name__ == "__main__" :
 
             gui.processEvents(event)
 
-        gui.update(time_delta)
+        if forcing :
+            mousex, mousey = pygame.mouse.get_pos()
+            print(mousex, mousey)
+            pend.force(mousex, mousey, node)
+
         world.draw()
+        gui.update(time_delta)
         gui.draw()
 

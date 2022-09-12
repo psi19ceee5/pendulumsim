@@ -33,6 +33,12 @@ class pendulum(Drawable.drawable) :
             self._mass_radius.append(20*m**(1./3.))
         self._method = euler()
         self.eom()
+        tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
+        effwidth = self._world.getEffWidth()
+        effheight = self._world.getEffHeight()
+        origin_x = lmargin + round(effwidth/2.)
+        origin_y = tmargin + self._mountpoint_height
+        self._objectorigin = (origin_x, origin_y)
 
     def setNumMethod(method) :
         self._method = method
@@ -45,7 +51,34 @@ class pendulum(Drawable.drawable) :
             if i > 0 :
                 self._x[i] = self._x[i] + self._x[i-1]
                 self._y[i] = self._y[i] + self._y[i-1]
-            self.eom()
+        self.eom()
+
+    def force(self, fx, fy, node) :
+        if node > 0 :
+            x0, y0 = self._x[node-1], self._y[node-1]
+        else :
+            x0, y0 = 0, 0
+        x0, y0 = self._world.convertWorldCoordinates((x0, y0), self._objectorigin)
+        if fy - y0 > 0 :
+            theta = np.arctan((fx-x0)/(fy-y0))
+        elif fy - y0 < 0 :
+            theta = np.pi + np.arctan((fx-x0)/(fy-y0))
+        else :
+            theta = np.sign(fx-x0)*np.pi/2.
+        self._theta[node] = theta
+        self._omega = [0]*len(self._theta)
+        self.update(0)
+
+    def getPos(self) :
+        posx, posy = [], []
+        for i in range(len(self._x)) :
+            px, py = self._world.convertWorldCoordinates((self._x[i], self._y[i]), self._objectorigin)
+            posx.append(px)
+            posy.append(py)
+        return posx, posy
+
+    def getRadius(self) :
+        return self._mass_radius
         
     @abstractmethod
     def eom(self) :

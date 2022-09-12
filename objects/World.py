@@ -34,6 +34,11 @@ class world(Drawable.drawable) :
             del obj
         self._object_stack = []
 
+    def convertWorldCoordinates(self, objcoord, objorigin) :
+        pixcoord_x = objorigin[0] + round(objcoord[0]/self._scale)
+        pixcoord_y = objorigin[1] - round(objcoord[1]/self._scale)
+        return pixcoord_x, pixcoord_y
+
     def draw(self) :
         for obj in self._object_stack :
             obj.draw()
