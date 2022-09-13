@@ -34,12 +34,12 @@ if __name__ == "__main__" :
     t0, t1 = 0, 0
     fps = 45
     running = True
-    moving = False
+    stopped = True
     forcing = False
     while running:
         time_delta = clock.tick(fps)
 
-        if moving :
+        if not stopped :
             tcyc = int(1000./fps)
             t0 = pygame.time.get_ticks()
             t1 = pygame.time.get_ticks()
@@ -55,7 +55,7 @@ if __name__ == "__main__" :
         for event in ev :
             if event.type == pygame.QUIT :
                 running = False
-            if moving == False and event.type == pygame.MOUSEBUTTONDOWN :
+            if stopped and event.type == pygame.MOUSEBUTTONDOWN :
                 mousex, mousey = event.pos
                 xpos, ypos = pend.getPos()
                 radius = pend.getRadius()
@@ -69,11 +69,7 @@ if __name__ == "__main__" :
                 forcing = False
             if event.type == pygame_gui.UI_BUTTON_PRESSED :
                 if event.ui_element == gui.getStopButton() :
-                    moving = False
-                    gui.showReleaseButton()
-                if event.ui_element == gui.getReleaseButton() :
-                    moving = True
-                    gui.showStopButton()
+                    stopped = not gui.toggleStopButton()
 
             gui.processEvents(event)
 

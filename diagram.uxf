@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2110</x>
+      <x>2020</x>
       <y>70</y>
       <w>600</w>
       <h>110</h>
@@ -22,7 +22,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2110</x>
+      <x>2020</x>
       <y>300</y>
       <w>600</w>
       <h>370</h>
@@ -56,7 +56,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1400</x>
+      <x>1310</x>
       <y>910</y>
       <w>600</w>
       <h>90</h>
@@ -72,7 +72,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1660</x>
+      <x>1570</x>
       <y>660</y>
       <w>630</w>
       <h>270</h>
@@ -83,7 +83,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2400</x>
+      <x>2310</x>
       <y>170</y>
       <w>30</w>
       <h>150</h>
@@ -94,7 +94,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2120</x>
+      <x>2030</x>
       <y>910</y>
       <w>590</w>
       <h>90</h>
@@ -110,7 +110,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2840</x>
+      <x>2750</x>
       <y>910</y>
       <w>590</w>
       <h>90</h>
@@ -126,7 +126,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2400</x>
+      <x>2310</x>
       <y>660</y>
       <w>30</w>
       <h>270</h>
@@ -137,7 +137,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2540</x>
+      <x>2450</x>
       <y>660</y>
       <w>610</w>
       <h>270</h>
@@ -148,7 +148,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
+      <x>590</x>
       <y>260</y>
       <w>620</w>
       <h>800</h>
@@ -211,7 +211,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1170</x>
+      <x>1080</x>
       <y>170</y>
       <w>1130</w>
       <h>110</h>
@@ -222,7 +222,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
+      <x>640</x>
       <y>110</y>
       <w>100</w>
       <h>30</h>
@@ -233,7 +233,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
+      <x>100</x>
       <y>130</y>
       <w>60</w>
       <h>160</h>
@@ -248,7 +248,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
+      <x>20</x>
       <y>110</y>
       <w>180</w>
       <h>30</h>
@@ -259,7 +259,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1100</x>
+      <x>1010</x>
       <y>70</y>
       <w>1030</w>
       <h>210</h>
@@ -271,7 +271,7 @@ m2=0...*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2940</x>
+      <x>2850</x>
       <y>340</y>
       <w>150</w>
       <h>80</h>
@@ -286,7 +286,7 @@ m2=0...*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2700</x>
+      <x>2610</x>
       <y>360</y>
       <w>260</w>
       <h>50</h>
@@ -300,7 +300,7 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>660</x>
       <y>130</y>
       <w>170</w>
       <h>150</h>
@@ -314,7 +314,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1140</x>
+      <x>1050</x>
       <y>100</y>
       <w>990</w>
       <h>180</h>
@@ -327,7 +327,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2960</x>
+      <x>2870</x>
       <y>470</y>
       <w>660</w>
       <h>60</h>
@@ -343,7 +343,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2800</x>
+      <x>2710</x>
       <y>640</y>
       <w>600</w>
       <h>60</h>
@@ -357,7 +357,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3450</x>
+      <x>3360</x>
       <y>640</y>
       <w>600</w>
       <h>60</h>
@@ -371,7 +371,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>3410</x>
+      <x>3320</x>
       <y>520</y>
       <w>340</w>
       <h>140</h>
@@ -382,7 +382,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2850</x>
+      <x>2760</x>
       <y>520</y>
       <w>300</w>
       <h>140</h>
@@ -393,7 +393,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2700</x>
+      <x>2610</x>
       <y>470</y>
       <w>280</w>
       <h>50</h>
@@ -406,29 +406,30 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
+      <x>70</x>
       <y>500</y>
       <w>400</w>
-      <h>120</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>pensimgui
 --
-#_show_stop_button: bool
-#_show_release_button: bool
+#_stop_button_state: bool
+#_sbutton_rect: pygame.Rect
 #_stop_button: pygame_gui.elements.UIButton
 #_release_button: pygame_gui.elements.UIButton
 --
 +__init__(world: world)
+#_showStopButton()
+#_showReleaseButton()
+#_setButton()
 +getStopButton(): pygame_gui.elements.UIButton
-+getReleaseButton(): pygame_gui.elements.UIButton
-+showStopButton()
-+showReleaseButton()</panel_attributes>
++toggleStopButton(): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>390</x>
       <y>310</y>
       <w>220</w>
       <h>50</h>
@@ -442,7 +443,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>210</x>
       <y>20</y>
       <w>1890</w>
       <h>270</h>
@@ -453,7 +454,7 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
+      <x>80</x>
       <y>270</y>
       <w>320</w>
       <h>180</h>
@@ -475,7 +476,7 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>210</x>
       <y>440</y>
       <w>30</w>
       <h>80</h>

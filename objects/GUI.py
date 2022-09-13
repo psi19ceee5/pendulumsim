@@ -28,8 +28,7 @@ class pensimgui(gui) :
     def __init__(self, world) :
         super().__init__(world)
 
-        self.showReleaseButton()
-
+        self._stop_button_state = False
         effwidth = world.getEffWidth()
         effheight = world.getEffHeight()
         tmargin, rmargin, bmargin, lmargin = world.getMargin()
@@ -37,30 +36,35 @@ class pensimgui(gui) :
         sbutton_h = int(0.1*effheight)
         sbutton_x = lmargin + effwidth - sbutton_w
         sbutton_y = tmargin + effheight - 2*int(1.2*sbutton_h)
-        sbutton_rect = pygame.Rect((sbutton_x, sbutton_y), (sbutton_w, sbutton_h))
-        self._stop_button = pygame_gui.elements.UIButton(relative_rect=sbutton_rect,
-                                                         text='Stop',
-                                                         manager=self._guimanager)
-        rbutton_w = sbutton_w
-        rbutton_h = sbutton_h
-        rbutton_x = sbutton_x
-        rbutton_y = tmargin + effheight - 1*int(1.2*sbutton_h)
-        rbutton_rect = pygame.Rect((rbutton_x, rbutton_y), (rbutton_w, rbutton_h))
-        self._release_button = pygame_gui.elements.UIButton(relative_rect=rbutton_rect,
-                                                            text='Release',
-                                                            manager=self._guimanager)
+        self._sbutton_rect = pygame.Rect((sbutton_x, sbutton_y), (sbutton_w, sbutton_h))
+        self._setButton()
 
+    def _showStopButton(self) :
+        self._stop_button_state = True
+        self._setButton()
+
+    def _showReleaseButton(self) :
+        self._stop_button_state = False
+        self._setButton()
+
+    def _setButton(self) :
+        self._guimanager.clear_and_reset()
+        if self._stop_button_state :
+            self._stop_button = pygame_gui.elements.UIButton(relative_rect=self._sbutton_rect,
+                                                             text='Stop',
+                                                             manager=self._guimanager)
+        else :
+            self._stop_button = pygame_gui.elements.UIButton(relative_rect=self._sbutton_rect,
+                                                             text='Release',
+                                                             manager=self._guimanager)
+        
     def getStopButton(self) :
         return self._stop_button
 
+    def toggleStopButton(self) :
+        if self._stop_button_state :
+            self._showReleaseButton()
+        else :
+            self._showStopButton()
 
-    def getReleaseButton(self) :
-        return self._release_button
-
-    def showStopButton(self) :
-        self._show_stop_button = True
-        self._show_release_button = False
-
-    def showReleaseButton(self) :
-        self._show_stop_button = False
-        self._show_release_button = True
+        return self._stop_button_state
