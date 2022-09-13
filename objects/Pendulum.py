@@ -53,6 +53,53 @@ class pendulum(Drawable.drawable) :
                 self._y[i] = self._y[i] + self._y[i-1]
         self.eom()
 
+    def draw(self) :
+        screenw = self._world.getEffWidth()
+        screenh = self._world.getEffHeight()
+        tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
+
+        screen = self._world.getScreen()
+        bgcolor = self._world.getBackgroundColor()
+        screen.fill(bgcolor)
+
+        for i in range(len(self._x)) :
+            # mass circles
+            x = self._x[i] / self._world.getScale() + lmargin + screenw/2
+            y = -self._y[i] / self._world.getScale() + tmargin + self._mountpoint_height
+            pygame.draw.circle(screen,
+                               (0,0,255),
+                               (x, y),
+                               int(self._mass_radius[i]),
+                               int(0.25*self._mass_radius[i]))
+            # suspension
+            if i > 0 :
+                prev_x = self._x[i-1] / self._world.getScale() + lmargin + screenw/2
+                prev_y = -self._y[i-1] / self._world.getScale() + tmargin + self._mountpoint_height
+                sus_x1 = prev_x + int(self._mass_radius[i-1]*np.sin(self._theta[i]))
+                sus_y1 = prev_y + int(self._mass_radius[i-1]*np.cos(self._theta[i]))
+            else :
+                sus_x1 = lmargin + screenw/2.
+                sus_y1 = tmargin + self._mountpoint_height
+            sus_x2 = x - int(self._mass_radius[i]*np.sin(self._theta[i]))
+            sus_y2 = y - int(self._mass_radius[i]*np.cos(self._theta[i]))
+            pygame.draw.line(screen,
+                             (0, 0, 0),
+                             (sus_x1, sus_y1),
+                             (sus_x2, sus_y2),
+                             width=3)
+
+        # mount point
+        rectl = lmargin + screenw/2. - self._mountpoint_width/2.
+        rectt = tmargin
+        pygame.draw.rect(screen,
+                         (157, 78, 40),
+                         pygame.Rect((rectl, rectt),
+                              (self._mountpoint_width,
+                               self._mountpoint_height)))
+        
+        pygame.display.update()
+
+
     def force(self, fx, fy, node) :
         if node > 0 :
             x0, y0 = self._x[node-1], self._y[node-1]
@@ -105,95 +152,9 @@ class pendulum1M(pendulum) :
     def eom(self) :
         self._alpha[0] = self._gravity*np.sin(self._theta[0])/self._length[0] - self._friction*self._omega[0]
 
-    def draw(self) :
-        screenw = self._world.getEffWidth()
-        screenh = self._world.getEffHeight()
-        tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
-
-        screen = self._world.getScreen()
-        bgcolor = self._world.getBackgroundColor()
-        screen.fill(bgcolor)
-
-        # mass circle
-        x = self._x[0] / self._world.getScale() + lmargin + screenw/2
-        y = -self._y[0] / self._world.getScale() + tmargin + self._mountpoint_height
-        pygame.draw.circle(screen,
-                           (0,0,255),
-                           (x, y),
-                           int(self._mass_radius[0]),
-                           int(0.25*self._mass_radius[0]))
-
-        # suspension
-        sus_x1 = lmargin + screenw/2.
-        sus_y1 = tmargin + self._mountpoint_height
-        sus_x2 = x - int(self._mass_radius*np.sin(self._theta))
-        sus_y2 = y - int(self._mass_radius*np.cos(self._theta))
-        pygame.draw.line(screen,
-                         (0, 0, 0),
-                         (sus_x1, sus_y1),
-                         (sus_x2, sus_y2),
-                         width=3)
-
-        # mount point
-        rectl = lmargin + screenw/2. - self._mountpoint_width/2.
-        rectt = tmargin
-        pygame.draw.rect(screen,
-                         (157, 78, 40),
-                         pygame.Rect((rectl, rectt),
-                              (self._mountpoint_width,
-                               self._mountpoint_height)))
-        
-        pygame.display.update()
-
         
 class pendulum2M(pendulum) :
     def eom(self) :
         # this is only valid for equal length and equal mass pendula
         self._alpha[0] = (self._gravity/self._length[0])*(2*np.sin(self._theta[0]) - np.sin(self._theta[1])) - self._friction*self._omega[0]
         self._alpha[1] = 2*(self._gravity/self._length[0])*(np.sin(self._theta[1]) - np.sin(self._theta[0])) - self._friction*self._omega[1]
-
-    def draw(self) :
-        screenw = self._world.getEffWidth()
-        screenh = self._world.getEffHeight()
-        tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
-
-        screen = self._world.getScreen()
-        bgcolor = self._world.getBackgroundColor()
-        screen.fill(bgcolor)
-
-        for i in range(len(self._x)) :
-            # mass circles
-            x = self._x[i] / self._world.getScale() + lmargin + screenw/2
-            y = -self._y[i] / self._world.getScale() + tmargin + self._mountpoint_height
-            pygame.draw.circle(screen,
-                               (0,0,255),
-                               (x, y),
-                               int(self._mass_radius[i]),
-                               int(0.25*self._mass_radius[i]))
-            # suspension
-            if i > 0 :
-                prev_x = self._x[i-1] / self._world.getScale() + lmargin + screenw/2
-                prev_y = -self._y[i-1] / self._world.getScale() + tmargin + self._mountpoint_height
-                sus_x1 = prev_x + int(self._mass_radius[i-1]*np.sin(self._theta[i]))
-                sus_y1 = prev_y + int(self._mass_radius[i-1]*np.cos(self._theta[i]))
-            else :
-                sus_x1 = lmargin + screenw/2.
-                sus_y1 = tmargin + self._mountpoint_height
-            sus_x2 = x - int(self._mass_radius[i]*np.sin(self._theta[i]))
-            sus_y2 = y - int(self._mass_radius[i]*np.cos(self._theta[i]))
-            pygame.draw.line(screen,
-                             (0, 0, 0),
-                             (sus_x1, sus_y1),
-                             (sus_x2, sus_y2),
-                             width=3)
-
-        # mount point
-        rectl = lmargin + screenw/2. - self._mountpoint_width/2.
-        rectt = tmargin
-        pygame.draw.rect(screen,
-                         (157, 78, 40),
-                         pygame.Rect((rectl, rectt),
-                              (self._mountpoint_width,
-                               self._mountpoint_height)))
-        
-        pygame.display.update()
