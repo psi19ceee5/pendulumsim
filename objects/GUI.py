@@ -28,6 +28,8 @@ class pensimgui(gui) :
     def __init__(self, world) :
         super().__init__(world)
 
+        self.showReleaseButton()
+
         effwidth = world.getEffWidth()
         effheight = world.getEffHeight()
         tmargin, rmargin, bmargin, lmargin = world.getMargin()
@@ -54,3 +56,11 @@ class pensimgui(gui) :
 
     def getReleaseButton(self) :
         return self._release_button
+
+    def showStopButton(self) :
+        self._show_stop_button = True
+        self._show_release_button = False
+
+    def showReleaseButton(self) :
+        self._show_stop_button = False
+        self._show_release_button = True

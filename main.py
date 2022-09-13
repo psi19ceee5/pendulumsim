@@ -70,8 +70,10 @@ if __name__ == "__main__" :
             if event.type == pygame_gui.UI_BUTTON_PRESSED :
                 if event.ui_element == gui.getStopButton() :
                     moving = False
+                    gui.showReleaseButton()
                 if event.ui_element == gui.getReleaseButton() :
                     moving = True
+                    gui.showStopButton()
 
             gui.processEvents(event)
 
