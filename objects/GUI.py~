@@ -1,8 +1,0 @@
-import pygame
-import pygame_gui
-from objects import Drawable
-
-class gui(Drawable.prawable) :
-
-
-class pensimgui(

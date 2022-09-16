@@ -143,7 +143,7 @@ class euler(num_method) :
         pass
     
     def update(self, theta, omega, alpha, dt) :
-        theta_new = theta + omega*dt + 0.5*alpha*dt*dt
+        theta_new = theta + omega*dt + alpha*dt*dt
         omega_new = omega + alpha*dt
         return theta_new, omega_new
 
