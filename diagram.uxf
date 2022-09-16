@@ -25,7 +25,7 @@
       <x>2000</x>
       <y>280</y>
       <w>600</w>
-      <h>390</h>
+      <h>380</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -33,7 +33,6 @@
 #_mass: double[]
 #_theta: double[]
 #_omega: double[]
-#_alpha: double[]
 #_x: double[]
 #_y: double[]
 #_gravity: double
@@ -66,19 +65,19 @@
 --
 
 --
-+eom(): double</panel_attributes>
++eom(theta: double[], omega: double[]): double[]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
-      <y>660</y>
+      <y>650</y>
       <w>630</w>
-      <h>250</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>610.0;10.0;610.0;60.0;10.0;70.0;10.0;230.0</additional_attributes>
+    <additional_attributes>610.0;10.0;610.0;70.0;10.0;80.0;10.0;240.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -103,7 +102,7 @@
 --
 
 --
-+eom(): double[2]</panel_attributes>
++eom(theta: double[], omega: double[]): double[]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -118,30 +117,30 @@
 --
 
 --
-+eom(): double[3]</panel_attributes>
++eom(theta: double[], omega: double[]): double[]</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2290</x>
-      <y>660</y>
+      <y>650</y>
       <w>30</w>
-      <h>250</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2430</x>
-      <y>660</y>
+      <y>650</y>
       <w>610</w>
-      <h>250</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;590.0;50.0;590.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;590.0;60.0;590.0;240.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -343,13 +342,13 @@ m2=1
     <coordinates>
       <x>2690</x>
       <y>620</y>
-      <w>600</w>
+      <w>530</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>Euler
+    <panel_attributes>euler
 --
 --
-/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double)/</panel_attributes>
+/+upate(theta: double, omega: double, dt: double) : (double[], double[])/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -357,13 +356,13 @@ m2=1
     <coordinates>
       <x>3340</x>
       <y>620</y>
-      <w>600</w>
+      <w>540</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>RungeKutta
+    <panel_attributes>rk4
 --
 --
-/+upate(theta: double, omega: double, alpha: double, dt: double) : (double, double)/</panel_attributes>
+/+upate(theta: double, omega: double, dt: double) : (double[], double[])/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -392,7 +391,7 @@ m2=1
     <id>Relation</id>
     <coordinates>
       <x>2590</x>
-      <y>450</y>
+      <y>440</y>
       <w>280</w>
       <h>50</h>
     </coordinates>
@@ -481,5 +480,18 @@ m2=1
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2590</x>
+      <y>470</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1
+</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
