@@ -147,7 +147,22 @@ class euler(num_method) :
         omega_new = omega + alpha*dt
         return theta_new, omega_new
 
+class rk4(num_method) :
+    def __init__(self, pendulum) :
+        self._pendulum = pendulum
+        pass
 
+    def update(self, theta, omega, alpha, dt) :
+        # all ki are vectors of order N_nodes
+        k1 = self._pendulum.eom(theta) # theta should be a vector of order N_nodes
+        k2 = self._pendulum.eom(theta + 0.5*dt*k1)
+        k3 = self._pendulum.eom(theta + 0.5*dt*k2)
+        k4 = self._pendulum.eom(theta + dt*k3)
+        Phi = (k1 + 2*k2 + 2*k3 + k4)/6. # Phi is a vector ...
+        omega_new = omega + Phi*dt
+        theta_new = theta + omega_new*dt # is this correct?
+
+        
 class pendulum1M(pendulum) :
     def eom(self) :
         self._alpha[0] = self._gravity*np.sin(self._theta[0])/self._length[0] - self._friction*self._omega[0]
