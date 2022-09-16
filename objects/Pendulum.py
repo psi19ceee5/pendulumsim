@@ -31,8 +31,8 @@ class pendulum(Drawable.drawable) :
         self._mass_radius = []
         for m in self._mass :
             self._mass_radius.append(20*m**(1./3.))
-        self._method = euler()
-        self.eom()
+        self._method = euler(self)
+        self._alpha = self.eom(self._theta, self._omega)
         tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
         effwidth = self._world.getEffWidth()
         effheight = self._world.getEffHeight()
@@ -40,18 +40,18 @@ class pendulum(Drawable.drawable) :
         origin_y = tmargin + self._mountpoint_height
         self._objectorigin = (origin_x, origin_y)
 
-    def setNumMethod(method) :
+    def setNumMethod(self, method) :
         self._method = method
 
     def update(self, dt) :
+        self._theta, self._omega = self._method.update(self._theta, self._omega, dt)
         for i in range(len(self._theta)) :
-            self._theta[i], self._omega[i] = self._method.update(self._theta[i], self._omega[i], self._alpha[i], dt)
             self._x[i] = self._length[i] * np.sin(self._theta[i])
             self._y[i] = -self._length[i] * np.cos(self._theta[i])
             if i > 0 :
                 self._x[i] = self._x[i] + self._x[i-1]
                 self._y[i] = self._y[i] + self._y[i-1]
-        self.eom()
+        self._alpha = self.eom(self._theta, self._omega)
 
     def draw(self) :
         screenw = self._world.getEffWidth()
@@ -133,43 +133,53 @@ class pendulum(Drawable.drawable) :
 
 
 class num_method(ABC) :
+    def __init__(self, pendulum) :
+        self._pendulum = pendulum
+        
     @abstractmethod
     def update() :
         pass
 
     
-class euler(num_method) :
-    def __init__(self) :
-        pass
-    
-    def update(self, theta, omega, alpha, dt) :
-        theta_new = theta + omega*dt + alpha*dt*dt
-        omega_new = omega + alpha*dt
+class euler(num_method) :    
+    def update(self, theta, omega, dt) :
+        alpha = self._pendulum.eom(theta, omega)
+        theta_new = []
+        omega_new = []
+        for i in range(len(theta)) :
+            omega_new.append(omega[i] + alpha[i]*dt)
+            theta_new.append(theta[i] + omega[i]*dt)
         return theta_new, omega_new
 
+    
 class rk4(num_method) :
-    def __init__(self, pendulum) :
-        self._pendulum = pendulum
-        pass
-
-    def update(self, theta, omega, alpha, dt) :
-        # all ki are vectors of order N_nodes
-        k1 = self._pendulum.eom(theta) # theta should be a vector of order N_nodes
-        k2 = self._pendulum.eom(theta + 0.5*dt*k1)
-        k3 = self._pendulum.eom(theta + 0.5*dt*k2)
-        k4 = self._pendulum.eom(theta + dt*k3)
-        Phi = (k1 + 2*k2 + 2*k3 + k4)/6. # Phi is a vector ...
-        omega_new = omega + Phi*dt
-        theta_new = theta + omega_new*dt # is this correct?
+    def update(self, theta, omega, dt) :
+        k1 = self._pendulum.eom(theta, omega)
+        thetamod = (np.array(theta) + 0.5*dt*np.array(k1)).tolist()
+        k2 = self._pendulum.eom(thetamod, omega)
+        thetamod = (np.array(theta) + 0.5*dt*np.array(k2)).tolist()
+        k3 = self._pendulum.eom(thetamod, omega)
+        thetamod = (np.array(theta) + dt*np.array(k3)).tolist()
+        k4 = self._pendulum.eom(thetamod, omega)
+        Phi = []
+        omega_new = []
+        theta_new = []
+        for i in range(len(theta)) :
+            Phi.append((k1[i] + 2*k2[i] + 2*k3[i] + k4[i])/6.)
+            omega_new.append(omega[i] + Phi[i]*dt)
+            theta_new.append(theta[i] + omega_new[i]*dt) # is this correct?
+        return theta_new, omega_new
 
         
 class pendulum1M(pendulum) :
-    def eom(self) :
-        self._alpha[0] = self._gravity*np.sin(self._theta[0])/self._length[0] - self._friction*self._omega[0]
+    def eom(self, theta, omega) :
+        alpha = self._gravity*np.sin(theta[0])/self._length[0] - self._friction*omega[0]
+        return [alpha]
 
         
 class pendulum2M(pendulum) :
-    def eom(self) :
+    def eom(self, theta, omega) :
         # this is only valid for equal length and equal mass pendula
-        self._alpha[0] = (self._gravity/self._length[0])*(2*np.sin(self._theta[0]) - np.sin(self._theta[1])) - self._friction*self._omega[0]
-        self._alpha[1] = 2*(self._gravity/self._length[0])*(np.sin(self._theta[1]) - np.sin(self._theta[0])) - self._friction*self._omega[1]
+        alpha1 = (self._gravity/self._length[0])*(2*np.sin(theta[0]) - np.sin(theta[1])) - self._friction*omega[0]
+        alpha2 = 2*(self._gravity/self._length[0])*(np.sin(theta[1]) - np.sin(theta[0])) - self._friction*omega[1]
+        return [alpha1, alpha2]

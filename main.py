@@ -20,12 +20,21 @@ if __name__ == "__main__" :
     gui = GUI.pensimgui(world)
     
     phys = Physics.physics(friction=0.01)
-    pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
-                                    mass=[1, 1],
-                                    theta=[0, 0],
-                                    omega=[0, 0],
+    # pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
+    #                                 mass=[1, 1],
+    #                                 theta=[0, 0],
+    #                                 omega=[0, 0],
+    #                                 phys=phys,
+    #                                 world=world)
+    pend = Pendulum.pendulum1M(length=[0.4],               
+                                    mass=[1],
+                                    theta=[0],
+                                    omega=[0],
                                     phys=phys,
                                     world=world)
+
+    method = Pendulum.rk4(pend)
+    pend.setNumMethod(method)
 
     world.appendObject(pend)
 
