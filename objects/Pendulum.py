@@ -15,7 +15,6 @@ class pendulum(Drawable.drawable) :
         self._x = []
         self._y = []
         self._omega = omega
-        self._alpha = []
         for i in range(len(self._length)) :
             if i > 0 :
                 self._x.append(self._x[i-1] + self._length[i] * np.sin(self._theta[i]))
@@ -23,7 +22,6 @@ class pendulum(Drawable.drawable) :
             else :
                 self._x.append(self._length[i] * np.sin(self._theta[i]))
                 self._y.append(-self._length[i] * np.cos(self._theta[i]))
-            self._alpha.append(None)
         self._gravity = phys.gravity
         self._friction = phys.friction
         self._mountpoint_width = 0.1*world.getEffWidth()
@@ -32,7 +30,6 @@ class pendulum(Drawable.drawable) :
         for m in self._mass :
             self._mass_radius.append(20*m**(1./3.))
         self._method = euler(self)
-        self._alpha = self.eom(self._theta, self._omega)
         tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
         effwidth = self._world.getEffWidth()
         effheight = self._world.getEffHeight()
@@ -51,7 +48,6 @@ class pendulum(Drawable.drawable) :
             if i > 0 :
                 self._x[i] = self._x[i] + self._x[i-1]
                 self._y[i] = self._y[i] + self._y[i-1]
-        self._alpha = self.eom(self._theta, self._omega)
 
     def draw(self) :
         screenw = self._world.getEffWidth()
