@@ -36,6 +36,7 @@ if __name__ == "__main__" :
 
     t0, t1 = 0, 0
     fps = 45
+    num_time_interval = 1 # ms
     running = True
     stopped = True
     forcing = False
@@ -50,9 +51,13 @@ if __name__ == "__main__" :
             while t1 - t0 < tcyc :
                 t1 = pygame.time.get_ticks()
                 world.update(dt/1000.)
-                pygame.time.delay(1)
+                pygame.time.delay(num_time_interval)
                 dt = pygame.time.get_ticks() - t1
         
+        if forcing :
+            mousex, mousey = pygame.mouse.get_pos()
+            pend.force(mousex, mousey, node)
+         
         ev = pygame.event.get()
 
         for event in ev :
@@ -75,10 +80,6 @@ if __name__ == "__main__" :
                     stopped = not gui.toggleStopButton()
 
             gui.processEvents(event)
-
-        if forcing :
-            mousex, mousey = pygame.mouse.get_pos()
-            pend.force(mousex, mousey, node)
 
         world.draw()
         gui.draw()
