@@ -26,6 +26,7 @@ if __name__ == "__main__" :
     gui = GUI.pensimgui(world)
     
     phys = Physics.physics(friction=0.00)
+
     pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
                                     mass=[1, 1],
                                     theta=[1.2, 2.3],
@@ -45,7 +46,6 @@ if __name__ == "__main__" :
     method = Pendulum.rk4(pend2)
     pend2.setNumMethod(method)
     world.appendObject(pend2)
-
 
     state = game_state()
 

@@ -75,6 +75,8 @@ class pensim_event_handler(event_handler) :
         pendula = self._world.getObjectStack()
         pendula = [x for x in pendula if issubclass(type(x), Pendulum.pendulum)]
         for pend in pendula :
+            if self._state.forcing == True :
+                break
             xpos, ypos = pend.getPos()
             radius = pend.getRadius()
             for i in range(pend.getN()) :
@@ -83,6 +85,7 @@ class pensim_event_handler(event_handler) :
                 if dist < radius[i] :
                     pend.setForcingState(True, i)
                     self._state.forcing = True
+                    break
 
     def _handleMouseButtonUp(self) :
         pendula = self._world.getObjectStack()
