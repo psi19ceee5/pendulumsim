@@ -30,6 +30,7 @@ class pendulum(Drawable.drawable) :
         for m in self._mass :
             self._mass_radius.append(20*m**(1./3.))
         self._method = euler(self)
+        self._forcing_state = [False]*len(mass)
         tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
         effwidth = self._world.getEffWidth()
         effheight = self._world.getEffHeight()
@@ -55,8 +56,6 @@ class pendulum(Drawable.drawable) :
         tmargin, rmargin, bmargin, lmargin = self._world.getMargin()
 
         screen = self._world.getScreen()
-        bgcolor = self._world.getBackgroundColor()
-        screen.fill(bgcolor)
 
         for i in range(len(self._x)) :
             # mass circles
@@ -95,22 +94,26 @@ class pendulum(Drawable.drawable) :
         
         pygame.display.update()
 
+    def force(self, fx, fy) :
+        for node in range(self.getN()) :
+            if self.isForced(node) :
+                if node > 0 :
+                    x0, y0 = self._x[node-1], self._y[node-1]
+                else :
+                    x0, y0 = 0, 0
+                x0, y0 = self._world.convertWorldCoordinates((x0, y0), self._objectorigin)
+                if fy - y0 > 0 :
+                    theta = np.arctan((fx-x0)/(fy-y0))
+                elif fy - y0 < 0 :
+                    theta = np.pi + np.arctan((fx-x0)/(fy-y0))
+                else :
+                    theta = np.sign(fx-x0)*np.pi/2.
+                self._theta[node] = theta
+                self._omega = [0]*len(self._theta)
+                self.update(0)
 
-    def force(self, fx, fy, node) :
-        if node > 0 :
-            x0, y0 = self._x[node-1], self._y[node-1]
-        else :
-            x0, y0 = 0, 0
-        x0, y0 = self._world.convertWorldCoordinates((x0, y0), self._objectorigin)
-        if fy - y0 > 0 :
-            theta = np.arctan((fx-x0)/(fy-y0))
-        elif fy - y0 < 0 :
-            theta = np.pi + np.arctan((fx-x0)/(fy-y0))
-        else :
-            theta = np.sign(fx-x0)*np.pi/2.
-        self._theta[node] = theta
-        self._omega = [0]*len(self._theta)
-        self.update(0)
+    def setForcingState(self, state, node) :
+        self._forcing_state[node] = state
 
     def getPos(self) :
         posx, posy = [], []
@@ -122,6 +125,12 @@ class pendulum(Drawable.drawable) :
 
     def getRadius(self) :
         return self._mass_radius
+
+    def getN(self) :
+        return len(self._mass)
+
+    def isForced(self, node) :
+        return self._forcing_state[node]
         
     @abstractmethod
     def eom(self) :

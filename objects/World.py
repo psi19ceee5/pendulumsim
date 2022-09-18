@@ -40,6 +40,7 @@ class world(Drawable.drawable) :
         return pixcoord_x, pixcoord_y
 
     def draw(self) :
+        self._screen.fill(self._background_color)
         for obj in self._object_stack :
             obj.draw()
 
@@ -96,6 +97,9 @@ class world(Drawable.drawable) :
 
     def _setEffAspectRatio(self) :
         return self._effwidth/self._effheight
+
+    def getObjectStack(self) :
+        return self._object_stack
 
     def getBackgroundColor(self) :
         return self._background_color

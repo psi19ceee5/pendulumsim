@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1272</x>
-      <y>144</y>
+      <x>1290</x>
+      <y>36</y>
       <w>360</w>
       <h>66</h>
     </coordinates>
@@ -22,10 +22,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1272</x>
-      <y>282</y>
+      <x>1290</x>
+      <y>150</y>
       <w>360</w>
-      <h>228</h>
+      <h>264</h>
     </coordinates>
     <panel_attributes>/pendulum/
 --
@@ -40,6 +40,7 @@
 #_mountpoint_width : double
 #_mountpoint_height : double
 #_mass_radius: double[]
+#_forcing_state: bool[]
 #_method: num_method
 #_objectorigin: (int, int)
 --
@@ -48,16 +49,19 @@
 +update(dt: double)
 +draw()
 +force(fx: double, fy: double, node: int)
++setForcingState(state: bool, node: int)
 +getPos(): (int[], int[])
 +getRadius(): double[]
++getN(): int
++isForced(node: int): bool
 /+eom()/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>846</x>
-      <y>648</y>
+      <x>864</x>
+      <y>540</y>
       <w>360</w>
       <h>42</h>
     </coordinates>
@@ -71,30 +75,30 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1002</x>
-      <y>504</y>
+      <x>1020</x>
+      <y>408</y>
       <w>378</w>
-      <h>156</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>610.0;10.0;610.0;70.0;10.0;80.0;10.0;240.0</additional_attributes>
+    <additional_attributes>610.0;10.0;610.0;50.0;10.0;60.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1446</x>
-      <y>204</y>
+      <x>1464</x>
+      <y>96</y>
       <w>18</w>
-      <h>90</h>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1278</x>
-      <y>648</y>
+      <x>1296</x>
+      <y>540</y>
       <w>354</w>
       <h>42</h>
     </coordinates>
@@ -108,8 +112,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1710</x>
-      <y>648</y>
+      <x>1728</x>
+      <y>540</y>
       <w>354</w>
       <h>42</h>
     </coordinates>
@@ -123,32 +127,32 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1446</x>
-      <y>504</y>
+      <x>1464</x>
+      <y>408</y>
       <w>18</w>
-      <h>156</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1530</x>
-      <y>504</y>
+      <x>1548</x>
+      <y>408</y>
       <w>366</w>
-      <h>156</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;590.0;60.0;590.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;590.0;40.0;590.0;220.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>414</x>
-      <y>258</y>
+      <x>432</x>
+      <y>156</y>
       <w>372</w>
-      <h>486</h>
+      <h>498</h>
     </coordinates>
     <panel_attributes>world
 --
@@ -188,6 +192,7 @@
 #_setEffHeight()
 #_setAspectRatio()
 #_setEffAspectRatio()
++getObjectStack() : drawable[]
 +getBackgroundColor(): (int, int, int)
 +getScreen(): pygame.Surface
 +getScale(): double
@@ -208,19 +213,19 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>708</x>
-      <y>204</y>
+      <x>726</x>
+      <y>96</y>
       <w>678</w>
-      <h>66</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>1110.0;10.0;1110.0;50.0;10.0;50.0;10.0;90.0</additional_attributes>
+    <additional_attributes>1110.0;10.0;1110.0;50.0;10.0;50.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>444</x>
-      <y>168</y>
+      <x>462</x>
+      <y>60</y>
       <w>60</w>
       <h>18</h>
     </coordinates>
@@ -230,8 +235,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>120</x>
-      <y>180</y>
+      <x>138</x>
+      <y>72</y>
       <w>36</w>
       <h>96</h>
     </coordinates>
@@ -245,8 +250,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>168</y>
+      <x>90</x>
+      <y>60</y>
       <w>108</w>
       <h>18</h>
     </coordinates>
@@ -256,20 +261,20 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>144</y>
+      <x>684</x>
+      <y>36</y>
       <w>618</w>
-      <h>126</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=0...*</panel_attributes>
-    <additional_attributes>10.0;190.0;10.0;10.0;1010.0;10.0</additional_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0;1010.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1770</x>
-      <y>306</y>
+      <x>1788</x>
+      <y>198</y>
       <w>90</w>
       <h>48</h>
     </coordinates>
@@ -283,8 +288,8 @@ m2=0...*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1626</x>
-      <y>318</y>
+      <x>1644</x>
+      <y>210</y>
       <w>156</w>
       <h>30</h>
     </coordinates>
@@ -297,35 +302,35 @@ m2=1..m
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>180</y>
+      <x>474</x>
+      <y>72</y>
       <w>102</w>
-      <h>90</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
 m2=1
 &lt; teaches to</panel_attributes>
-    <additional_attributes>130.0;130.0;130.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>130.0;140.0;130.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>162</y>
+      <x>708</x>
+      <y>54</y>
       <w>594</w>
-      <h>108</h>
+      <h>114</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m2=1
 </panel_attributes>
-    <additional_attributes>970.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
+    <additional_attributes>970.0;20.0;10.0;20.0;10.0;170.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1782</x>
-      <y>384</y>
+      <x>1800</x>
+      <y>276</y>
       <w>396</w>
       <h>36</h>
     </coordinates>
@@ -340,8 +345,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1686</x>
-      <y>486</y>
+      <x>1704</x>
+      <y>378</y>
       <w>318</w>
       <h>36</h>
     </coordinates>
@@ -354,8 +359,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2076</x>
-      <y>486</y>
+      <x>2094</x>
+      <y>378</y>
       <w>324</w>
       <h>36</h>
     </coordinates>
@@ -368,8 +373,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2052</x>
-      <y>414</y>
+      <x>2070</x>
+      <y>306</y>
       <w>204</w>
       <h>84</h>
     </coordinates>
@@ -379,8 +384,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1716</x>
-      <y>414</y>
+      <x>1734</x>
+      <y>306</y>
       <w>180</w>
       <h>84</h>
     </coordinates>
@@ -390,8 +395,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1626</x>
-      <y>378</y>
+      <x>1644</x>
+      <y>270</y>
       <w>168</w>
       <h>30</h>
     </coordinates>
@@ -403,8 +408,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>102</x>
-      <y>402</y>
+      <x>120</x>
+      <y>294</y>
       <w>240</w>
       <h>144</h>
     </coordinates>
@@ -426,22 +431,22 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
-      <y>288</y>
+      <x>312</x>
+      <y>180</y>
       <w>132</w>
-      <h>30</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 &lt; teaches to </panel_attributes>
-    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>200.0;30.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>114</y>
+      <x>204</x>
+      <y>6</y>
       <w>1134</w>
       <h>162</h>
     </coordinates>
@@ -451,8 +456,8 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>108</x>
-      <y>264</y>
+      <x>126</x>
+      <y>156</y>
       <w>192</w>
       <h>108</h>
     </coordinates>
@@ -473,8 +478,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>186</x>
-      <y>366</y>
+      <x>204</x>
+      <y>258</y>
       <w>18</w>
       <h>48</h>
     </coordinates>
@@ -484,8 +489,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1626</x>
-      <y>396</y>
+      <x>1644</x>
+      <y>288</y>
       <w>168</w>
       <h>30</h>
     </coordinates>
@@ -497,23 +502,25 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>114</x>
-      <y>582</y>
+      <x>132</x>
+      <y>474</y>
       <w>210</w>
-      <h>114</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>/event_handler/
 --
 #_gui: gui
 #_world: world
+#_state: game_state
 --
-/+handleEvent(event: pygame.Eventlist)/
-/+setGUI(gui: gui)/
-/+setWorld(world: world)/
-/#handleQuit()/
-/#handleMouseButtonDown/
-/#handleMouseButtonUp/
-/#handleGUIActions/
+/+setGUI()/
+/+setWorld()/
+/+setGameState()/
+/+handleEvents()/
+/#_handleQuit()/
+/#_handleMouseButtonDown()/
+/#_handleMouseButtonUp()/
+/#_handleGUIEvents()/
 
 
 </panel_attributes>
@@ -522,8 +529,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>66</x>
-      <y>306</y>
+      <x>84</x>
+      <y>198</y>
       <w>60</w>
       <h>312</h>
     </coordinates>
@@ -536,36 +543,37 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>318</x>
-      <y>588</y>
+      <x>336</x>
+      <y>480</y>
       <w>108</w>
-      <h>30</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
 m2=1
 </panel_attributes>
-    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;160.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>114</x>
-      <y>732</y>
-      <w>210</w>
-      <h>102</h>
+      <x>132</x>
+      <y>630</y>
+      <w>222</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>pendsim_event_handler
 --
 --
-+__init__(gui: gui, world: world)
-+handleEvent(event: pygame.Eventlist)
++__init__(gui: gui, world: world, state: game_state)
 +setGUI(gui: gui)
 +setWorld(world: world)
-#handleQuit()
-#handleMouseButtonDown
-#handleMouseButtonUp
-#handleGUIActions
++setGameState(state: game_state)
++handleEvents(events: pygame.Eventlist)
+#_handleQuit()
+#_handleMouseButtonDown(event: pygame.Event)
+#_handleMouseButtonUp()
+#_handleGUIEvents(event: pygame.Event)
 
 
 </panel_attributes>
@@ -574,12 +582,38 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>690</y>
+      <x>234</x>
+      <y>600</y>
       <w>18</w>
-      <h>54</h>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>534</y>
+      <w>72</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>game_state
+--
++running: bool
++stopped: bool
++forcing: bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>66</x>
+      <y>558</y>
+      <w>78</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

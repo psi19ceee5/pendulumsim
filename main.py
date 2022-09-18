@@ -10,7 +10,13 @@ from objects import Physics
 from objects import Drawable
 from objects import Pendulum
 from objects import GUI
+from objects import Event_Handler
 
+class game_state :
+    def __init__(self) :
+        self.running = True
+        self.stopped = True
+        self.forcing = False
 
 if __name__ == "__main__" :
 
@@ -22,28 +28,38 @@ if __name__ == "__main__" :
     phys = Physics.physics(friction=0.00)
     pend = Pendulum.pendulum2M(length=[0.4, 0.4],               
                                     mass=[1, 1],
-                                    theta=[0, 0],
+                                    theta=[1.2, 2.3],
                                     omega=[0, 0],
                                     phys=phys,
                                     world=world)
-
     method = Pendulum.rk4(pend)
     pend.setNumMethod(method)
-
     world.appendObject(pend)
+
+    pend2 = Pendulum.pendulum2M(length=[0.4, 0.4],               
+                                    mass=[1, 1],
+                                    theta=[1.2, 2.30001],
+                                    omega=[0, 0],
+                                    phys=phys,
+                                    world=world)
+    method = Pendulum.rk4(pend2)
+    pend2.setNumMethod(method)
+    world.appendObject(pend2)
+
+
+    state = game_state()
+
+    evt_handler = Event_Handler.pensim_event_handler(gui, world, state)
 
     clock = pygame.time.Clock()
 
     t0, t1 = 0, 0
     fps = 45
     num_time_interval = 1 # ms
-    running = True
-    stopped = True
-    forcing = False
-    while running:
+    while state.running:
         time_delta = clock.tick(fps)
 
-        if not stopped :
+        if not state.stopped :
             tcyc = int(1000./fps)
             t0 = pygame.time.get_ticks()
             t1 = pygame.time.get_ticks()
@@ -53,33 +69,18 @@ if __name__ == "__main__" :
                 world.update(dt/1000.)
                 pygame.time.delay(num_time_interval)
                 dt = pygame.time.get_ticks() - t1
-        
-        if forcing :
+
+        if state.forcing :
             mousex, mousey = pygame.mouse.get_pos()
-            pend.force(mousex, mousey, node)
-         
+            pendula = world.getObjectStack()
+            pendula = [x for x in pendula if issubclass(type(x), Pendulum.pendulum)]
+            for pend in pendula :
+                for i in range(pend.getN()) :
+                    if pend.isForced :
+                        pend.force(mousex, mousey)
+
         ev = pygame.event.get()
-
-        for event in ev :
-            if event.type == pygame.QUIT :
-                running = False
-            if stopped and event.type == pygame.MOUSEBUTTONDOWN :
-                mousex, mousey = event.pos
-                xpos, ypos = pend.getPos()
-                radius = pend.getRadius()
-                for i in range(len(xpos)) :
-                    dist = (xpos[i] - mousex)**2 + (ypos[i] - mousey)**2
-                    dist = np.sqrt(dist)
-                    if dist < radius[i] :
-                        forcing = True
-                        node = i
-            if event.type == pygame.MOUSEBUTTONUP :
-                forcing = False
-            if event.type == pygame_gui.UI_BUTTON_PRESSED :
-                if event.ui_element == gui.getStopButton() :
-                    stopped = not gui.toggleStopButton()
-
-            gui.processEvents(event)
+        evt_handler.handleEvents(ev)
 
         world.draw()
         gui.draw()
