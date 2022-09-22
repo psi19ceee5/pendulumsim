@@ -21,7 +21,6 @@ class gui(Drawable.drawable) :
 
     def draw(self) :
         self._guimanager.draw_ui(self._screen)
-        pygame.display.update()
         
 
 class pensimgui(gui) :

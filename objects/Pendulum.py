@@ -92,7 +92,6 @@ class pendulum(Drawable.drawable) :
                               (self._mountpoint_width,
                                self._mountpoint_height)))
         
-        pygame.display.update()
 
     def force(self, fx, fy) :
         for node in range(self.getN()) :

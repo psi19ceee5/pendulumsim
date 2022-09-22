@@ -85,4 +85,5 @@ if __name__ == "__main__" :
         world.draw()
         gui.draw()
         gui.update(time_delta)
+        pygame.display.update()
 
